@@ -1,7 +1,7 @@
 {
   "name": "quizgame-huangahmed",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "start": "parcel serve ./src/index.html",
     "build": "parcel build ./src/index.html"
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/staten-island-tech/quizgame-huangahmed#readme",
   "description": "",
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.0-beta.2",
     "parcel": "^2.0.0-beta.2"
   }
 }
