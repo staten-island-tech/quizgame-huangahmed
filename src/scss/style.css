@@ -1,3 +1,87 @@
+.banner {
+  color: white;
+  margin-top: 10rem;
+  font-size: 3rem;
+}
+
+.container {
+  background-color: blanchedalmond;
+  max-width: 50%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 75vw;
+  height: auto;
+  padding: 2rem;
+}
+
+.div-answer-btn {
+  display: -ms-grid;
+  display: grid;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 1rem;
+  content: hidden;
+}
+
+.answer-btn {
+  margin: 1rem;
+  font-size: 2rem;
+  border-radius: 2.5rem;
+  padding: 1rem;
+}
+
+.h1-quiz {
+  font-size: 2.5rem;
+  display: inline-block;
+}
+
+.quiz-questions {
+  font-size: 3rem;
+}
+
+.answer-btn:hover,
+.btn-before:hover,
+.btn-after:hover {
+  border-color: blue;
+}
+
+.answer-btn.correct {
+  background-color: green;
+}
+
+.div-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.btn-before,
+.btn-after {
+  font-size: 3rem;
+  margin: 0.5rem;
+  padding: 1rem;
+}
+
+.answer-btn.wrong {
+  background-color: red;
+}
+
 html,
 body {
   font-size: 62.5%;
@@ -5,5 +89,19 @@ body {
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: black;
 }
 /*# sourceMappingURL=style.css.map */
