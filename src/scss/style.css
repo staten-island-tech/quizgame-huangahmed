@@ -49,25 +49,37 @@
   font-size: 3rem;
 }
 
-.answer-btn {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  background-color: pink;
-  color: white;
-  margin: 1rem auto;
-  font-size: 2rem;
-  border-radius: 5rem;
-  border: 2px solid white;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  position: relative;
-  -webkit-transition: background 1s;
-  transition: background 1s;
+.answer-btn:hover,
+.btn-before:hover,
+.btn-after:hover {
+  border-color: blue;
 }
 
-.answer.btn:hover {
-  background: salmon;
+.answer-btn.correct {
+  background-color: green;
+}
+
+.div-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.btn-before,
+.btn-after {
+  font-size: 3rem;
+  margin: 0.5rem;
+  padding: 1rem;
+}
+
+.answer-btn.wrong {
+  background-color: red;
 }
 
 html,
