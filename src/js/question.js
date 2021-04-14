@@ -50,3 +50,6 @@ const questions = [
     ],
   },
 ];
+
+
+export { questions };
