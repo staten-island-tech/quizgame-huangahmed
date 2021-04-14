@@ -1,4 +1,6 @@
-import "../js/question";
+/* import "../js/question"; */
+
+import { questions } from "./questions";
 
 console.log("connected");
 
