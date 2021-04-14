@@ -34,43 +34,26 @@
   font-size: 3rem;
 }
 
-// .answer-btn:hover,
-// .btn-before:hover,
-// .btn-after:hover {
-//   border-color: blue;
-// }
+ .answer-btn:hover,
+ .btn-before:hover,
+ .btn-after:hover {
+   border-color: blue;
+ }
 
-// .answer-btn.correct {
-//   background-color: green;
-// }
-// .div-control {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
-// .btn-before,
-// .btn-after {
-//   font-size: 3rem;
-//   margin: 0.5rem;
-//   padding: 1rem;
-// }
-// .answer-btn.wrong {
-//   background-color: red;
-// }
-.answer-btn {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  background-color: pink;
-  color: white;
-  margin: 1rem auto;
-  font-size: 2rem;
-  border-radius: 5rem;
-  border: 2px solid white;
-  transition: all 0.3s;
-  position: relative;
-  transition: background 1s;
-}
-.answer.btn:hover {
-  background: salmon;
-}
+ .answer-btn.correct {
+   background-color: green;
+ }
+ .div-control {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+.btn-before,
+.btn-after {
+  font-size: 3rem;
+ margin: 0.5rem;
+   padding: 1rem;
+ }
+ .answer-btn.wrong {
+   background-color: red;
+ }
