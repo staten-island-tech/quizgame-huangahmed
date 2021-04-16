@@ -1,0 +1,2 @@
+!function(){console.log("connected");const t=document.getElementById("questions");console.log(t);const o=document.getElementById("buttons");console.log(o);const e=document.getElementById("start-button");console.log(e),e.addEventListener("click",(function(){console.log("started"),e.classList.add("hide")}));const n=document.getElementById("start-button");console.log(n);const c=document.getElementById("buttons");console.log(c);document.getElementById("next-button")}();
+//# sourceMappingURL=index.d8a24b51.js.map

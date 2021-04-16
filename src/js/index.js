@@ -53,27 +53,31 @@ const questions = [
   },
 ];
 
-const startButton = document.getElementById("btn-before");
-console.log(startButton);
-
-const questionContainerElement = document.getElementById("quiz-questions");
+const questionContainerElement = document.getElementById("questions");
 console.log(questionContainerElement);
 
-const questionAsked = questions.question;
-console.log(questionAsked);
+const answerBtn = document.getElementById("buttons");
+console.log(answerBtn);
 
-const answerBtn = document.getElementById("questions.answer");
+const startButton = document.getElementById("start-button");
+console.log(startButton);
 
-const startButton = document.getElementById("btn-before");
-startButton.addEventListener("click", startGame);
+startButton.addEventListener("click", startQuiz);
 
+const buttonAye = document.getElementById("start-button");
+console.log(buttonAye);
+
+const buttonYay = document.getElementById("buttons");
+console.log(buttonYay);
+
+const nextBtn = document.getElementById("next-button");
 function startQuiz() {
   console.log("started");
   startButton.classList.add("hide");
-  questionContainerElement.classList.remove("hide");
+  // questionContainerElement.add("show");
+  // nextBtn.classList.remove("hide");
+  // nextBtn.classList.add("show");
   // setNextQuestion();
 }
 
-function setNextQuestion() {
-  revealQuestion(questions);
-}
+function setNextQuestion() {}

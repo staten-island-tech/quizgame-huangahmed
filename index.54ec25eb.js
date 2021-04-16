@@ -1,0 +1,2 @@
+!function(){console.log("connected");const t=document.getElementById("questions");console.log(t);const o=document.getElementById("buttons");console.log(o);const e=document.getElementById("start-button");console.log(e),e.addEventListener("click",(function(){console.log("started"),e.classList.add("hide"),t.remove("hide"),c.classList.add("show")}));const n=document.getElementById("start-button");console.log(n);const s=document.getElementById("buttons");console.log(s);const c=document.getElementById("next-button")}();
+//# sourceMappingURL=index.54ec25eb.js.map
