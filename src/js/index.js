@@ -125,7 +125,7 @@ function redButton2() {
   answerBtn.classList.remove("show");
   answerBtn2.classList.remove("show");
   answerBtn4.classList.remove("show");
-  -1;
+  +1;
 }
 
 function redButton3() {
