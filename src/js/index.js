@@ -11,7 +11,7 @@ const questions = [
     ],
   },
   {
-    question: "Rate your personality.",
+    question: "Are you a human?",
     answers: [
       { text: "yes", correct: true },
       { text: "no", correct: false },
@@ -20,7 +20,7 @@ const questions = [
     ],
   },
   {
-    question: "What class do you attend or teach (Choose your favorite)?",
+    question: "Is AP Comp Sci your favorite classes?",
     answers: [
       { text: "yes", correct: true },
       { text: "no", correct: false },
@@ -29,7 +29,7 @@ const questions = [
     ],
   },
   {
-    question: "How many AP Classes did you take or teach?",
+    question: "Did you take AP Classes?",
     answers: [
       { text: "yes", correct: true },
       { text: "no", correct: false },
@@ -70,17 +70,11 @@ function newFunc() {
 const questionContainerElement = document.getElementById("questions");
 console.log(questionContainerElement);
 const startButton = document.getElementById("start-button");
-const buttonAye = document.getElementById("start-button");
-console.log(buttonAye);
 
 const answerBtn = document.getElementById("buttons-1");
 const answerBtn2 = document.getElementById("buttons-2");
 const answerBtn3 = document.getElementById("buttons-3");
 const answerBtn4 = document.getElementById("buttons-4");
-console.log(answerBtn);
-console.log(answerBtn2);
-console.log(answerBtn3);
-console.log(answerBtn4);
 
 let shuffledQuestion, currentQuestionNum;
 
@@ -98,35 +92,80 @@ function startQuiz() {
   answerBtn4.classList.add("show");
   nextBtn.classList.add("show");
   setNextQuestion();
-  selectAnswer();
-  nextButton();
+}
+
+answerBtn.addEventListener("click", greenButton);
+function greenButton() {
+  console.log("pressed");
+  answerBtn.classList.add("answer.btn-correct");
+  answerBtn2.classList.remove("show");
+  answerBtn3.classList.remove("show");
+  answerBtn4.classList.remove("show");
+  alert("Yay, that is plus one.");
+  +1;
+}
+answerBtn2.addEventListener("click", redButton1);
+answerBtn3.addEventListener("click", redButton2);
+answerBtn4.addEventListener("click", redButton3);
+
+function redButton1() {
+  console.log("eh");
+  alert("Ew, that is minus one.");
+
+  answerBtn.classList.remove("show");
+  answerBtn3.classList.remove("show");
+  answerBtn4.classList.remove("show");
+  -1;
+}
+
+function redButton2() {
+  console.log("eh");
+  alert("Ew, that is minus one.");
+
+  answerBtn.classList.remove("show");
+  answerBtn2.classList.remove("show");
+  answerBtn4.classList.remove("show");
+  -1;
+}
+
+function redButton3() {
+  console.log("eh");
+  alert("Ew, that is minus one.");
+  answerBtn.classList.remove("show");
+  answerBtn2.classList.remove("show");
+  answerBtn3.classList.remove("show");
+  -1;
 }
 
 function setNextQuestion() {
   showQuestion(shuffledQuestion[currentQuestionNum]);
-
-  // showAnswer();
-  // collectData();
-  // clickAnswer();
 }
 
 function showQuestion(questions) {
   questionContainerElement.innerText = questions.question;
-
-  // questions.answers.forEach((answer) => {
-  //   const button = document.createElement("button");
-  //   button.innerText = answers.text;
-  //   button.classList.add("answer-btn");
-  // });
 }
 
-selectAnswer.addEventListener("click", function selectAnswers() {
-  if (question.answers.correct === true) {
-    +1;
-  } else alert("Correct!");
-});
+nextBtn.addEventListener("click", newQuestions);
+function newQuestions() {
+  resetState();
+}
 
-nextButton.addEventListener("click", function newQuestions() { });
+function resetState() {
+  answerBtn.classList.add("show");
+  answerBtn2.classList.add("show");
+  answerBtn3.classList.add("show");
+  answerBtn4.classList.add("show");
+  nextBtn.classList.add("show");
+  currentQuestionNum++;
+  setNextQuestion();
+  if (shuffledQuestion.length > currentQuestionNum + 1) {
+  } else {
+    startButton.innerText = "restart!";
+    startButton.classList.remove("hide");
+    startQuiz();
+  }
+}
+//nextButton.addEventListener("click", function newQuestions() {});
 // function showAnswer(questions) {
 //   answerBtn.innerText.html = questions.answers;
 // }
