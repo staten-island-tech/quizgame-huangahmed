@@ -1,74 +1,11 @@
-console.log("connected");
-
-const questions = [
-  {
-    question: "Have you talked to Mr. Erlenwein?",
-    answers: [
-      { text: "yes", correct: true },
-      { text: "no", correct: false },
-      { text: "idk", correct: false },
-      { text: "no comment", correct: false },
-    ],
-  },
-  {
-    question: "Are you a human?",
-    answers: [
-      { text: "yes", correct: true },
-      { text: "no", correct: false },
-      { text: "idk", correct: false },
-      { text: "no comment", correct: false },
-    ],
-  },
-  {
-    question: "Is AP Comp Sci your favorite classes?",
-    answers: [
-      { text: "yes", correct: true },
-      { text: "no", correct: false },
-      { text: "idk", correct: false },
-      { text: "no comment", correct: false },
-    ],
-  },
-  {
-    question: "Did you take AP Classes?",
-    answers: [
-      { text: "yes", correct: true },
-      { text: "no", correct: false },
-      { text: "idk", correct: false },
-      { text: "no comment", correct: false },
-    ],
-  },
-  {
-    question: "Do you coach a sports team or are you on a sports team?",
-    answers: [
-      { text: "yes", correct: true },
-      { text: "no", correct: false },
-      { text: "idk", correct: false },
-      { text: "no comment", correct: false },
-    ],
-  },
-  {
-    question: "Bonus: Are you Mr. Whalen?",
-    answers: [
-      { text: "yes", correct: true },
-      { text: "no", correct: false },
-      { text: "idk", correct: false },
-      { text: "no comment", correct: false },
-    ],
-  },
-];
-
-console.log(questions);
-
-function newFunc() {
-  const questionsArr = Array.from(questions);
-}
+import { questions } from "./question";
 
 //console.log(questions[0].answers.text);
 // array2.forEach((elements) => console.log(elements));
 // array3.forEach((element3) => console.log(element3));
 
 const questionContainerElement = document.getElementById("questions");
-console.log(questionContainerElement);
+
 const startButton = document.getElementById("start-button");
 
 const answerBtn = document.getElementById("buttons-1");
@@ -82,7 +19,6 @@ startButton.addEventListener("click", startQuiz);
 
 const nextBtn = document.getElementById("next-button");
 function startQuiz() {
-  console.log("started");
   startButton.classList.add("hide");
   shuffledQuestion = questions.sort(() => Math.random() - 0.5);
   currentQuestionNum = 0;
@@ -96,7 +32,6 @@ function startQuiz() {
 
 answerBtn.addEventListener("click", greenButton);
 function greenButton() {
-  console.log("pressed");
   answerBtn.classList.add("answer.btn-correct");
   answerBtn2.classList.remove("show");
   answerBtn3.classList.remove("show");
@@ -109,7 +44,6 @@ answerBtn3.addEventListener("click", redButton2);
 answerBtn4.addEventListener("click", redButton3);
 
 function redButton1() {
-  console.log("eh");
   alert("Ew, that is minus one.");
 
   answerBtn.classList.remove("show");
@@ -119,7 +53,6 @@ function redButton1() {
 }
 
 function redButton2() {
-  console.log("eh");
   alert("Ew, that is minus one.");
 
   answerBtn.classList.remove("show");
@@ -129,7 +62,6 @@ function redButton2() {
 }
 
 function redButton3() {
-  console.log("eh");
   alert("Ew, that is minus one.");
   answerBtn.classList.remove("show");
   answerBtn2.classList.remove("show");
@@ -143,6 +75,13 @@ function setNextQuestion() {
 
 function showQuestion(questions) {
   questionContainerElement.innerText = questions.question;
+  const answerButtons = document.querySelectorAll(".answer-btn"); //node list of answer buttobs
+  const answerButtonsArr = Array.from(answerButtons); //make an array
+  answerButtonsArr.forEach((btn) => {
+    btn.addEventListener("click", function (event) {
+      console.log(event.target.innerText);
+    });
+  });
 }
 
 nextBtn.addEventListener("click", newQuestions);
