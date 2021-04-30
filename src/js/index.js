@@ -1,17 +1,10 @@
 import { questions } from "./question";
 
-//console.log(questions[0].answers.text);
-// array2.forEach((elements) => console.log(elements));
-// array3.forEach((element3) => console.log(element3));
-
-const questionContainerElement = document.getElementById("questions");
+const questionContainer = document.getElementById("questions");
+const answerButton = document.querySelectorAll(".answer-btn");
+console.log(answerButton);
 
 const startButton = document.getElementById("start-button");
-
-const answerBtn = document.getElementById("buttons-1");
-const answerBtn2 = document.getElementById("buttons-2");
-const answerBtn3 = document.getElementById("buttons-3");
-const answerBtn4 = document.getElementById("buttons-4");
 
 let shuffledQuestion, currentQuestionNum;
 
@@ -20,96 +13,137 @@ startButton.addEventListener("click", startQuiz);
 const nextBtn = document.getElementById("next-button");
 function startQuiz() {
   startButton.classList.add("hide");
+  answerButton.forEach(function (oneButton) {
+    oneButton.classList.add("show");
+  });
+  nextBtn.classList.add("show");
   shuffledQuestion = questions.sort(() => Math.random() - 0.5);
   currentQuestionNum = 0;
-  answerBtn.classList.add("show");
-  answerBtn2.classList.add("show");
-  answerBtn3.classList.add("show");
-  answerBtn4.classList.add("show");
-  nextBtn.classList.add("show");
   setNextQuestion();
-}
-
-answerBtn.addEventListener("click", greenButton);
-function greenButton() {
-  answerBtn.classList.add("answer.btn-correct");
-  answerBtn2.classList.remove("show");
-  answerBtn3.classList.remove("show");
-  answerBtn4.classList.remove("show");
-  alert("Yay, that is plus one.");
-  +1;
-}
-answerBtn2.addEventListener("click", redButton1);
-answerBtn3.addEventListener("click", redButton2);
-answerBtn4.addEventListener("click", redButton3);
-
-function redButton1() {
-  alert("Ew, that is minus one.");
-
-  answerBtn.classList.remove("show");
-  answerBtn3.classList.remove("show");
-  answerBtn4.classList.remove("show");
-  -1;
-}
-
-function redButton2() {
-  alert("Ew, that is minus one.");
-
-  answerBtn.classList.remove("show");
-  answerBtn2.classList.remove("show");
-  answerBtn4.classList.remove("show");
-  +1;
-}
-
-function redButton3() {
-  alert("Ew, that is minus one.");
-  answerBtn.classList.remove("show");
-  answerBtn2.classList.remove("show");
-  answerBtn3.classList.remove("show");
-  -1;
+  showQuestion();
+  selectAnswer();
+  // answerBtn.classList.add("show");
+  // answerBtn2.classList.add("show");
+  // answerBtn3.classList.add("show");
+  // answerBtn4.classList.add("show");
+  // nextBtn.classList.add("show");
+  // setNextQuestion();
 }
 
 function setNextQuestion() {
   showQuestion(shuffledQuestion[currentQuestionNum]);
 }
 
-function showQuestion(questions) {
-  questionContainerElement.innerText = questions.question;
-  const answerButtons = document.querySelectorAll(".answer-btn"); //node list of answer buttobs
-  const answerButtonsArr = Array.from(answerButtons); //make an array
-  answerButtonsArr.forEach((btn) => {
-    btn.addEventListener("click", function (event) {
-      console.log(event.target.innerText);
-    });
+function showQuestion(question) {
+  //questionContainer.innerText = question.question;
+  question.answers.forEach((answer) => {
+    const button = document.createElement("button");
+    button.innerText = answer.text;
+    button.classList.add(".answer-btn");
   });
 }
 
-nextBtn.addEventListener("click", newQuestions);
-function newQuestions() {
-  resetState();
-}
+function selectAnswer() {
+  //  Array.from(answerButton).
+  console.log(Array.from(answerButton));
+  // for (let allButtons of answerButton.value()) {
+  //   console.log(allButtons);
+  // }
+  // Array.from(answerButton).addEventListener("click", function () {
+  //   alert("received");
+  // });
 
-function resetState() {
-  answerBtn.classList.add("show");
-  answerBtn2.classList.add("show");
-  answerBtn3.classList.add("show");
-  answerBtn4.classList.add("show");
-  nextBtn.classList.add("show");
-  currentQuestionNum++;
-  setNextQuestion();
-  if (shuffledQuestion.length > currentQuestionNum + 1) {
-  } else {
-    startButton.innerText = "restart!";
-    startButton.classList.remove("hide");
-    startQuiz();
+  for (let i = 0; i < answerButton.length; i++) {
+    answerButton[i].addEventListener("click", selected);
+  }
+  function selected() {
+    alert("recieved");
   }
 }
-//nextButton.addEventListener("click", function newQuestions() {});
+//function showQuestion(questions) {
+// questionContainerElement.innerText = questions.question;
+//const answerButtons = document.querySelectorAll(".answer-btn"); //node list of answer buttons
+// const answerButtonsArr = Array.from(answerButtons); //make an array
+// answerButtonsArr.forEach((btn) => {
+//   btn.addEventListener("click", function (event) {
+//     console.log(event.target.innerText);
+//event.target.innerText = questions.answerButtonsArr;
+//     });
+//   });
+// }
+// showQuestion();
+
+// const answerBtn = document.getElementById("buttons-1");
+// const answerBtn2 = document.getElementById("buttons-2");
+// const answerBtn3 = document.getElementById("buttons-3");
+// const answerBtn4 = document.getElementById("buttons-4");
+
+// function resetState() {
+//   answerBtn.classList.add("show");
+//   answerBtn2.classList.add("show");
+//   answerBtn3.classList.add("show");
+//   answerBtn4.classList.add("show");
+//   nextBtn.classList.add("show");
+//   currentQuestionNum++;
+//   setNextQuestion();
+//   if (shuffledQuestion.length > currentQuestionNum + 1) {
+//   } else {
+//     startButton.innerText = "restart!";
+//     startButton.classList.remove("hide");
+//     startQuiz();
+//   }
+// }
+
+// answerBtn.addEventListener("click", greenButton);
+// function greenButton() {
+//   answerBtn.classList.add("answer.btn-correct");
+//   answerBtn2.classList.remove("show");
+//   answerBtn3.classList.remove("show");
+//   answerBtn4.classList.remove("show");
+//   alert("Yay, that is plus one.");
+//   +1;
+// }
+// answerBtn2.addEventListener("click", redButton1);
+// answerBtn3.addEventListener("click", redButton2);
+// answerBtn4.addEventListener("click", redButton3);
+
+// function redButton1() {
+//   alert("Ew, that is minus one.");
+
+//   answerBtn.classList.remove("show");
+//   answerBtn3.classList.remove("show");
+//   answerBtn4.classList.remove("show");
+//   -1;
+// }
+
+// function redButton2() {
+//   alert("Ew, that is minus one.");
+
+//   answerBtn.classList.remove("show");
+//   answerBtn2.classList.remove("show");
+//   answerBtn4.classList.remove("show");
+//   +1;
+// }
+
+// function redButton3() {
+//   alert("Ew, that is minus one.");
+//   answerBtn.classList.remove("show");
+//   answerBtn2.classList.remove("show");
+//   answerBtn3.classList.remove("show");
+//   -1;
+// }
+
+// nextBtn.addEventListener("click", newQuestions);
+// function newQuestions() {
+//   resetState();
+// }
+
+// nextButton.addEventListener("click", function newQuestions() {});
 // function showAnswer(questions) {
 //   answerBtn.innerText.html = questions.answers;
 // }
 
-//needAnswer();
+// needAnswer();
 
 // function showAnswer() {
 //   const passAnswer = questions[0].answers.map((item) => {

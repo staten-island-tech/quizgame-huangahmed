@@ -51,5 +51,11 @@ const questions = [
   },
 ];
 
+for (i = 0; i < questions.length; i++) {
+  const specific = questions[i].answers;
+  console.log(specific);
+}
+
+questions[i].answers.length.array.forEach((answers) => {});
 
 export { questions };
