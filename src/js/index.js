@@ -19,47 +19,41 @@ function startQuiz() {
   nextBtn.classList.add("show");
   shuffledQuestion = questions.sort(() => Math.random() - 0.5);
   currentQuestionNum = 0;
-  setNextQuestion();
-  showQuestion();
-  selectAnswer();
-  // answerBtn.classList.add("show");
-  // answerBtn2.classList.add("show");
-  // answerBtn3.classList.add("show");
-  // answerBtn4.classList.add("show");
-  // nextBtn.classList.add("show");
-  // setNextQuestion();
-}
-
-function setNextQuestion() {
   showQuestion(shuffledQuestion[currentQuestionNum]);
+  setNextQuestion();
+  selectAnswer();
 }
 
 function showQuestion(question) {
-  //questionContainer.innerText = question.question;
-  question.answers.forEach((answer) => {
-    const button = document.createElement("button");
-    button.innerText = answer.text;
-    button.classList.add(".answer-btn");
-  });
+  questionContainer.innerText = question.question;
+  // question.answers.forEach((answer) => {
+  //   const button = document.createElement("button");
+  //   button.innerText = answer.text;
+  //   button.classList.add(".answer-btn");
+  // });
 }
 
 function selectAnswer() {
-  //  Array.from(answerButton).
   console.log(Array.from(answerButton));
-  // for (let allButtons of answerButton.value()) {
-  //   console.log(allButtons);
-  // }
-  // Array.from(answerButton).addEventListener("click", function () {
-  //   alert("received");
-  // });
-
   for (let i = 0; i < answerButton.length; i++) {
     answerButton[i].addEventListener("click", selected);
   }
   function selected() {
     alert("recieved");
+    answerButton.forEach(function (oneButton) {
+      oneButton.classList.remove("show");
+    });
   }
 }
+
+function setNextQuestion() {
+  if (questions[i] > questions.length) {
+    nextBtn.classList.remove("show");
+  }
+  nextBtn.addEventListener("click", nextOne);
+  function nextOne() {}
+}
+
 //function showQuestion(questions) {
 // questionContainerElement.innerText = questions.question;
 //const answerButtons = document.querySelectorAll(".answer-btn"); //node list of answer buttons

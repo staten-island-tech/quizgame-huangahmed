@@ -56,6 +56,6 @@ for (i = 0; i < questions.length; i++) {
   console.log(specific);
 }
 
-questions[i].answers.length.array.forEach((answers) => {});
+//questions[i].answers.length.array.forEach((answers) => {});
 
 export { questions };
