@@ -1,5 +1,6 @@
 import { questions } from "./question";
 
+let correctCounter = 0;
 const questionContainer = document.getElementById("questions");
 const answerButton = document.querySelectorAll(".answer-btn");
 console.log(answerButton);
@@ -16,7 +17,6 @@ function startQuiz() {
   answerButton.forEach(function (oneButton) {
     oneButton.classList.add("show");
   });
-  //nextBtn.classList.add("show");
   shuffledQuestion = questions.sort(() => Math.random() - 0.5);
   currentQuestionNum = 0;
   showQuestion(shuffledQuestion[currentQuestionNum]);
@@ -36,27 +36,53 @@ function showQuestion(question) {
 function selectAnswer() {
   console.log(Array.from(answerButton));
   for (let i = 0; i < answerButton.length; i++) {
-    answerButton[i].addEventListener("click", selected);
-  }
-  function selected() {
-    alert("recieved");
-    answerButton.forEach(function (oneButton) {
-      oneButton.classList.remove("show");
+    answerButton[i].addEventListener("click", () => {
+      selected(answerButton[i]);
     });
+  }
+  function selected(answerButton) {
+    if (answerButton.value == "true") {
+      correctCounter++;
+      alert("correct");
+    } else {
+      alert("recieved");
+    }
+    setNextQuestion();
+    // answerButton.forEach(function (oneButton) {
+    //   // oneButton.classList.remove("show");
+    //   nextBtn.classList.add("show");
+    // });
   }
 }
 
 function setNextQuestion() {
-  if (questions[i] > questions.length) {
-    nextBtn.classList.remove("show");
+  nextOne();
+}
+
+function nextOne() {
+  console.log(currentQuestionNum);
+
+  if (currentQuestionNum > 5) {
+    if (correctCounter >= 3) {
+      alert("You are so pouplar!");
+    } else {
+      alert("Dang, you suck.");
+    }
+    window.location.reload();
   }
-  nextBtn.addEventListener("click", nextOne);
-  function nextOne() {
-    console.log("hello");
-    currentQuestionNum++;
-    document.getElementById("questions").innerHTML =
-      questions[currentQuestionNum]["question"];
-  }
+  document.getElementById("questions").innerHTML =
+    questions[currentQuestionNum]["question"];
+
+  let answerChoice = 0;
+  answerButton.forEach(function (oneButton) {
+    // oneButton.classList.remove("show");
+    oneButton.innerHTML =
+      questions[currentQuestionNum]["answers"][answerChoice]["text"];
+    oneButton.value =
+      questions[currentQuestionNum]["answers"][answerChoice]["correct"];
+    answerChoice++;
+  });
+  currentQuestionNum++;
 }
 
 //function showQuestion(questions) {
