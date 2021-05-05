@@ -4,6 +4,8 @@ const questions = [
     answers: [
       { text: "yes", correct: true },
       { text: "no", correct: false },
+      { text: "i dont know", correct: false },
+      {text: "i don't wanna say anything", correct: false }
     ],
   },
   {
@@ -45,6 +47,8 @@ const questions = [
   {
     question: "Bonus: Are you Mr. Whalen?",
     answers: [
+      { text: "yes", correct: true },
+      { text: "no", correct: false },
       { text: "yes", correct: true },
       { text: "no", correct: false },
     ],

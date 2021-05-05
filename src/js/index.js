@@ -16,7 +16,7 @@ function startQuiz() {
   answerButton.forEach(function (oneButton) {
     oneButton.classList.add("show");
   });
-  nextBtn.classList.add("show");
+  //nextBtn.classList.add("show");
   shuffledQuestion = questions.sort(() => Math.random() - 0.5);
   currentQuestionNum = 0;
   showQuestion(shuffledQuestion[currentQuestionNum]);
