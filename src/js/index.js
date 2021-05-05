@@ -51,7 +51,12 @@ function setNextQuestion() {
     nextBtn.classList.remove("show");
   }
   nextBtn.addEventListener("click", nextOne);
-  function nextOne() {}
+  function nextOne() {
+    console.log("hello");
+    currentQuestionNum++;
+    document.getElementById("questions").innerHTML =
+      questions[currentQuestionNum]["question"];
+  }
 }
 
 //function showQuestion(questions) {
