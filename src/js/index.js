@@ -34,12 +34,19 @@ function showQuestion(question) {
 }
 
 function selectAnswer() {
-  console.log(Array.from(answerButton));
-  for (let i = 0; i < answerButton.length; i++) {
-    answerButton[i].addEventListener("click", () => {
-      selected(answerButton[i]);
+  console.log(answerButton);
+  answerButton.forEach((i) => {
+    i.addEventListener("click", () => {
+      selected(i);
     });
-  }
+  });
+
+  // for (let i = 0; i < answerButton.length; i++) {
+  //   answerButton[i].addEventListener("click", () => {
+  //     selected(answerButton[i]);
+  //   });
+  // }
+
   function selected(answerButton) {
     if (answerButton.value == "true") {
       correctCounter++;
@@ -64,7 +71,7 @@ function nextOne() {
 
   if (currentQuestionNum > 5) {
     if (correctCounter >= 3) {
-      alert("You are so pouplar!");
+      alert("You are so popular!");
     } else {
       alert("Dang, you suck.");
     }
